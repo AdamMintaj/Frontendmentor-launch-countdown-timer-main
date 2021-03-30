@@ -1,0 +1,205 @@
+/* ========
+	Global
+   ======== */
+
+*
+{
+	box-sizing: border-box;
+}
+
+html
+{
+	height: 100vh;
+}
+
+body
+{
+	font-family: "Red hat text";
+	font-size: 14px;
+	margin: 0;
+	height: 100%;
+	background-color: #1e1f29;
+	background-image: url("images/bg-stars.svg");
+	background-repeat: repeat;
+	text-align: center;
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+}
+
+/* ========
+	Banner
+   ======== */
+
+header
+{
+	grid-row: 1/2;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+h1
+{
+	color: white;
+   	font-size: 1.5em;
+   	letter-spacing: 0.3em;
+}
+
+/* =======
+	Timer
+   ======= */
+
+main
+{
+	grid-row: 2/4;
+	align-self: center;
+}
+
+.timer
+{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.card
+{
+	width: 20%;
+	padding-top: 18%;
+	background-color:  #343650;
+	position: relative;
+	border-radius: 7px;
+	box-shadow: 0 10px 3px #191a24;
+}
+
+.card-top
+{
+	background-color: rgba(44, 44, 68, 0.4);
+	width: 100%;
+	padding-top: 45%;
+	position: absolute;
+	border-radius: 7px 7px 0 0;
+	bottom: 50%;
+	/*border-bottom: 1px solid rgba(44, 44, 68, 0.1);*/
+}
+
+.card-binding-left, .card-binding-right
+{
+	width: 3%;
+	height: 8%;
+	position: absolute;
+	bottom: 46%;
+	background-color: #1e1f29;
+}
+
+.card-binding-left
+{
+	border-radius: 0 100px 100px 0;
+}
+
+.card-binding-right
+{
+	left: 97%;
+	border-radius: 100px 0 0 100px;
+}
+
+.card-digits
+{
+	position: absolute;
+	width: 100%;
+	bottom: 13%;
+	font-size: 10vw;
+	color: #FB6087;
+}
+
+.card-digits p
+{
+	margin: 0;
+}
+
+.card-label
+{
+	position: absolute;
+	color:  #8486a9;
+	width: 100%;
+	margin-top: 5px;
+	letter-spacing: 1vw;
+	font-size: 2vw;
+}
+
+
+/* ========
+	Footer
+   ======== */
+
+footer
+{
+	grid-row: 4/5;
+	background-image: url("images/pattern-hills.svg");
+	background-position: top right;
+	background-size: cover;
+	font-size: 0.8em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+a
+{
+	color: #3E52A3;
+}
+
+	/* ===============================
+		Footer - Social media buttons
+	   =============================== */
+
+	.smedia
+	{
+		display: flex;
+		justify-content: center;
+	}
+
+	.button
+	{
+		cursor: pointer;
+		margin: 12px;
+	}
+
+	svg:hover path
+	{
+		fill: #FB6087;
+		transition: 0.7s;
+	}
+
+/* =================================
+	Adjustments for desktop version
+   ================================= */
+
+@media screen and (min-width: 1000px)
+{
+	body
+	{
+		background-size: auto;
+	}
+
+	/* =======
+		Timer
+	   ======= */
+
+	.timer
+	{
+		width: 48%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.card-label
+	{
+		letter-spacing: 0.5vw;
+		font-size: 1vw;
+	}
+
+	.card-digits
+	{
+		font-size: 5vw;
+	}
+}
