@@ -61,26 +61,143 @@ main
 	justify-content: space-evenly;
 }
 
-.card
-{
-	width: 20%;
-	padding-top: 18%;
-	background-color:  #343650;
-	position: relative;
-	border-radius: 7px;
-	box-shadow: 0 10px 3px #191a24;
-}
+	/* ============
+		Timer card
+	   ============ */
 
-.card-top
-{
-	background-color: rgba(44, 44, 68, 0.4);
-	width: 100%;
-	padding-top: 45%;
-	position: absolute;
-	border-radius: 7px 7px 0 0;
-	bottom: 50%;
-	/*border-bottom: 1px solid rgba(44, 44, 68, 0.1);*/
-}
+	.card
+	{
+		width: 20%;
+		padding-top: 18%;
+		background-color: #1e1f29;
+		position: relative;
+		border-radius: 7px;
+		box-shadow: 0 10px 3px #191a24;
+	}
+
+	.card-top
+	{
+		height: 50%;
+		bottom: 50%;
+		border-radius: 7px 7px 0 0;
+		background-color: #31324b;
+	}
+
+	.card-bottom
+	{
+		height: 50%;
+		bottom: 0;
+		border-radius: 0 0 7px 7px;
+		background-color: #343650;
+	}
+
+	.card-top, .card-bottom
+	{
+		position:absolute;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.card-top p
+	{
+		top: 25%;
+		color: #a84b6c;
+	}
+
+	.card-bottom p
+	{
+		bottom: 25%;
+		color: #FB6087;
+	}
+
+	.card-top p, .card-bottom p
+	{
+		position: absolute;
+		width: 100%;
+		font-size: 10vw;
+		margin: 0;
+	}
+
+		/* ====================
+			Timer card overlay
+		   ==================== */
+
+		.card-overlay, .card-overlay-front, .card-overlay-back
+		{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+		}
+
+		.card-overlay
+		{
+			transform-style: preserve-3d;
+		}
+
+		.card-overlay-back
+		{
+			transform: rotateX(180deg);
+			transform-style: preserve-3d;
+		}
+
+		.card-overlay-front-top, .card-overlay-back-top
+		{
+			position: absolute;
+			width: 100%;
+			height: 50%;
+			overflow: hidden;
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+		}
+
+		.card-overlay-front-top
+		{
+			background-color: #31324b;
+			border-radius: 7px 7px 0 0;
+		}
+
+		.card-overlay-back-top
+		{
+			bottom: 0%;
+			background-color: #343650;
+			border-radius: 0 0 7px 7px;
+		}
+
+		.card-overlay-front-top p, .card-overlay-back-top p
+		{
+			position: absolute;
+			width: 100%;
+			font-size: 10vw;
+			margin: 0;
+		}
+
+		.card-overlay-front-top p
+		{
+			top: 25%;
+			color: #a84b6c;
+		}
+
+		.card-overlay-back-top p
+		{
+			bottom: 25%;
+			color: #FB6087;
+		}
+
+			/* ========================
+			    Overlay flip animation
+			   ======================== */
+
+			   .animation
+				{
+					animation: flip 1s infinite;
+				}
+
+				@keyframes flip
+				{
+					0%		{transform: rotateX(0deg);}
+					100%	{transform: rotateX(180deg);}
+				}
 
 .card-binding-left, .card-binding-right
 {
@@ -100,20 +217,6 @@ main
 {
 	left: 97%;
 	border-radius: 100px 0 0 100px;
-}
-
-.card-digits
-{
-	position: absolute;
-	width: 100%;
-	bottom: 13%;
-	font-size: 10vw;
-	color: #FB6087;
-}
-
-.card-digits p
-{
-	margin: 0;
 }
 
 .card-label
@@ -164,7 +267,7 @@ a
 		margin: 12px;
 	}
 
-	svg:hover path
+	.button svg:hover path
 	{
 		fill: #FB6087;
 		transition: 0.7s;
@@ -192,14 +295,22 @@ a
 		margin-right: auto;
 	}
 
+	.card-top p, .card-overlay-front-top p
+	{
+		font-size: 5vw;
+		top: 22%;
+	}
+
+	.card-bottom p, .card-overlay-back-top p
+	{
+		font-size: 5vw;
+		bottom: 22%;
+	}
+
 	.card-label
 	{
 		letter-spacing: 0.5vw;
 		font-size: 1vw;
 	}
 
-	.card-digits
-	{
-		font-size: 5vw;
-	}
 }

@@ -7,17 +7,50 @@ setInterval(function (){
 	/*Calculate time left from now to the launch date*/
 	var now = new Date().getTime();
 	var timeLeft = launchDate - now;
-	
+
 	/*Calculate how many days, hours, minutes and seconds left till launch day */
 	var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
 	var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 	var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
+	var variables = [days, hours, minutes, seconds];
+	var variables_names = ["days", "hours", "minutes", "seconds"];
+	var overlays = document.querySelectorAll(".card-overlay");
+
+	/*Start the flip card animation for seconds*/
+	overlays[3].classList.toggle("animation");	
+
+	/*Trigger flip card animation for days, hours or minutes*/
+	for(i=0; i<3; i++)
+	{
+		if(variables[i+1] == 59 & variables[3] == 59)
+		overlays[i].classList.toggle("animation");
+	}
+
 	/*Display time left on screen*/
-	document.getElementById("days").innerHTML = days;
-	document.getElementById("hours").innerHTML = hours;
-	document.getElementById("minutes").innerHTML = minutes;
-	document.getElementById("seconds").innerHTML = seconds;
+	for(i=0; i<variables.length; i++)
+	{
+		document.getElementById(variables_names[i]+"-top").innerHTML = variables[i];
+		document.getElementById(variables_names[i]+"-overlay-back").innerHTML = variables[i];
+	}
+
+	/*Timeout creates delay to make the change look smoothly*/
+	setTimeout(function(){
+
+		/*Stop the flip card animation*/
+		for(i=0; i<overlays.length; i++)
+		{
+			if(overlays[i].classList.contains("animation"))
+			overlays[i].classList.toggle("animation");
+		}
+
+		for(i=0; i<variables.length; i++)
+			{
+				document.getElementById(variables_names[i]+"-bottom").innerHTML = variables[i];
+				document.getElementById(variables_names[i]+"-overlay-front").innerHTML = variables[i];
+			}
+
+	}, 900);
 
 }, 1000);
