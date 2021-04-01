@@ -1,3 +1,9 @@
+/*This animated flipcard timer is not an optimal solution but it's the best
+I could come up with without copypasting code from the Internet. Main issue
+I noticed so far is the clock sometimes skips one number and flashes the next
+twice. This occurs mainly in Edge and Chrome, much less in Firefox but I've
+got no idea why. Probably something with timeout function. */
+
 /*Get today's date and set the launch day to 2 days from now*/
 var today = new Date().getTime();
 var launchDate = new Date(today+172800000);
@@ -51,6 +57,6 @@ setInterval(function (){
 				document.getElementById(variables_names[i]+"-overlay-front").innerHTML = variables[i];
 			}
 
-	}, 900);
+	}, 800);
 
 }, 1000);
