@@ -199,26 +199,6 @@ main
 					100%	{transform: rotateX(180deg);}
 				}
 
-.card-binding-left, .card-binding-right
-{
-	width: 3%;
-	height: 8%;
-	position: absolute;
-	bottom: 46%;
-	background-color: #1e1f29;
-}
-
-.card-binding-left
-{
-	border-radius: 0 100px 100px 0;
-}
-
-.card-binding-right
-{
-	left: 97%;
-	border-radius: 100px 0 0 100px;
-}
-
 .card-label
 {
 	position: absolute;
@@ -229,6 +209,14 @@ main
 	font-size: 2vw;
 }
 
+.card svg
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 
 /* ========
 	Footer
@@ -305,6 +293,11 @@ a
 	{
 		font-size: 5vw;
 		bottom: 22%;
+	}
+
+	.card svg line
+	{	
+		stroke-width: 2px;
 	}
 
 	.card-label
